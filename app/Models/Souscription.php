@@ -10,9 +10,8 @@ use App\Models\Projet;
 
 class Souscription extends Model
 {
-    use HasFactory, SoftDeletes;
 
-    protected $table = 'souscriptions';
+    //protected $table = 'souscriptions';
 
     protected $fillable = [
         'souscripteur_id',

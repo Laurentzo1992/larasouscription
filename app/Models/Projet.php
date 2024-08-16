@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Projet extends Model
 {
-    use HasFactory, SoftDeletes;
-    protected $table = 'projets';
+
+    //protected $table = 'projets';
 
     protected $fillable = [
         'libelle',
