@@ -15,24 +15,23 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('type_personne', 50);
-            $table->string('nom', 50);
-            $table->string('prenom', 50);
-            $table->string('sexe', 50);
-            $table->string('contact', 50);
+            $table->string('nom', 50)->nullable();
+            $table->string('prenom', 50)->nullable();
+            $table->string('sexe', 50)->nullable();
+            $table->string('contact', 50)->nullable();
             $table->string('contact2', 50)->nullable();
             $table->string('raison_social', 50)->nullable();
-            $table->date('date_naissance');
-            $table->string('lieu_naissance', 50);
-            $table->string('type_piece', 50);
-            $table->string('reference_piece', 50);
-            $table->date('date_delivrance');
-            $table->string('situation_matrimoniale', 50);
-            $table->string('residence', 50);
-            $table->string('nationalite', 50);
+            $table->date('date_naissance')->nullable();
+            $table->string('lieu_naissance', 50)->nullable();
+            $table->string('type_piece', 50)->nullable();
+            $table->string('reference_piece', 50)->nullable();
+            $table->date('date_delivrance')->nullable();
+            $table->string('situation_matrimoniale', 50)->nullable();
+            $table->string('residence', 50)->nullable();
+            $table->string('nationalite', 50)->nullable();
             $table->string('profession', 50)->nullable();
             $table->string('photo')->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

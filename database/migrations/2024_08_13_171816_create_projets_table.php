@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('libelle');
             $table->float('amount', 15, 2);
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

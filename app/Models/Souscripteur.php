@@ -5,10 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\User;
+use App\Models\Souscription;
 
 class Souscripteur extends Model
 {
     use HasFactory, SoftDeletes;
+
     protected $table = 'souscripteurs';
 
     protected $fillable = [
@@ -35,5 +38,10 @@ class Souscripteur extends Model
     public function souscriptions()
     {
         return $this->hasMany(Souscription::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

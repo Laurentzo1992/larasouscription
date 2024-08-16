@@ -79,7 +79,7 @@ class SouscriptionController extends Controller
 
     // Création de la Souscription
     Souscription::create([
-        'id_souscripteur' => $souscripteur->id,
+        'souscripteur_id' => $souscripteur->id,
         'numero_souscription' => $request->ref_attestation_prom,
         'projet_id' => $request->projet_a_souscrire,
         'date_souscription' => $request->date_souscription,
@@ -95,7 +95,6 @@ class SouscriptionController extends Controller
         'pj1' => $pj1Path,
         'pj2' => $pj2Path,
         'pj3' => $pj3Path,
-        'is_certified' => $request->is_certified,
     ]);
 
     // Rediriger l'utilisateur après l'enregistrement
