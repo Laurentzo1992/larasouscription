@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('souscripteurs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('type_personne', 50);
             $table->string('nom', 50);
             $table->string('prenom', 50);
             $table->string('sexe', 50);
             $table->string('contact', 50);
             $table->string('contact2', 50)->nullable();
+            $table->string('raison_social', 50)->nullable();
             $table->date('date_naissance');
             $table->string('lieu_naissance', 50);
             $table->string('type_piece', 50);
@@ -27,7 +29,7 @@ return new class extends Migration
             $table->string('situation_matrimoniale', 50);
             $table->string('residence', 50);
             $table->string('nationalite', 50);
-            $table->string('profession', 50);
+            $table->string('profession', 50)->nullable();
             $table->string('photo')->nullable();
             $table->timestamps();
             $table->softDeletes();

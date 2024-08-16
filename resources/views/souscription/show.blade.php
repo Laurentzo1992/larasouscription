@@ -3,8 +3,7 @@
 @section('title', 'Portail | DGI')
 @section('content')
 
-
-<H2 class="text-center mt-4">Mes souscriptions</H2>
+<H2 class="text-center mt-4">Listes des souscriptions</H2>
 
 <table class="table">
     <thead>

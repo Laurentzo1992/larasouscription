@@ -9,14 +9,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Souscripteur extends Model
 {
     use HasFactory, SoftDeletes;
+    protected $table = 'souscripteurs';
 
     protected $fillable = [
+        'user_id',
         'type_personne',
         'nom',
         'prenom',
         'sexe',
         'contact',
         'contact2',
+        'raison_social',
         'date_naissance',
         'lieu_naissance',
         'type_piece',
@@ -26,7 +29,7 @@ class Souscripteur extends Model
         'residence',
         'nationalite',
         'profession',
-        'photo'
+        'photo',
     ];
 
     public function souscriptions()

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Souscription extends Model
 {
     use HasFactory, SoftDeletes;
+    protected $table = 'souscriptions';
 
     protected $fillable = [
         'id_souscripteur',

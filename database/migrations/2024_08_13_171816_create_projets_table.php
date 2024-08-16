@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('projets', function (Blueprint $table) {
             $table->id();
-            $table->text('libelle');
+            $table->string('libelle');
+            $table->float('amount', 15, 2);
             $table->timestamps();
             $table->softDeletes();
         });
