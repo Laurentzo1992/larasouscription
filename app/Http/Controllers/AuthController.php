@@ -87,7 +87,7 @@ class AuthController extends Controller
                 'pj3' => 'pieces/default_pj3.jpg',
             ]);
         */
-        
+
         return view('auth.index');
     }
 

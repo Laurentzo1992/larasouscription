@@ -40,7 +40,7 @@ class SouscriptionRequest extends FormRequest
             'contact2' => 'nullable|string|max:20',
             'residence' => 'required|string|max:255',
             'raison_social' => 'required_if:type_personne,PM|string|max:255',
-            'email' => 'required|email|max:255|unique:souscripteur,email',
+            'email' => 'required|email|max:255|unique:users,email',
             'password' => [
                 'required',
                 'string',

@@ -35,7 +35,7 @@ class Souscripteur extends Model
         'photo',
     ];
 
-    public function souscriptions()
+    public function souscription()
     {
         return $this->hasMany(Souscription::class);
     }
