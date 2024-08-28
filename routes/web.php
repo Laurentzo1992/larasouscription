@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Counter;
 use App\Http\Controllers\SouscriptionController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProjetController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +30,13 @@ Route::get('/login', [AuthController::class, 'login'])->name('auth.login');
 Route::post('/login', [AuthController::class, 'doLogin']);
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+
+
+
+
+Route::get('/projet/ajout', [ProjetController::class, 'create'])->name('projet.create');
+Route::post('/Projet/creation', [ProjetController::class, 'store'])->name('projet.store');
+Route::get('/Projet/liste', [ProjetController::class, 'show'])->name('projet.show');
 
 
 

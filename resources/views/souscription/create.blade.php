@@ -15,7 +15,7 @@
                 <p style="color: red">Les champs suivis d'étoile rouge sont obligatoires</p>
                 <div class="row">
                     <div class="col-md-12 mx-0">
-                        <form id="msform" method="post" action="{{ route('souscription.store') }}" enctype="multipart/form-data">
+                        <form id="msform" method="POST" action="{{ route('souscription.store') }}" enctype="multipart/form-data">
                             @csrf
                             <ul id="progressbar">
                                 <li class="active" id="personal"><strong>Identité du souscripteur</strong></li>
@@ -181,7 +181,7 @@
                                         <div class="col-12 col-md-6">
                                             <label class="fw-bold" for="">Projet à souscrire<span style="color:red">*</span></label>
                                             <div class="input-group mb-3">
-                                                <select name="projet_a_souscrire" id="projet_a_souscrire" class="form-control" style="width: 100%;" aria-label="projet_a_souscrire" aria-describedby="basic-addon1" required>
+                                                <select name="projet_id" id="projet_id" class="form-control" style="width: 100%;" aria-label="projet_id" aria-describedby="basic-addon1" required>
                                                     <option value="">Choisir</option>
                                                     @foreach($projets as $projet)
                                                     <option value="{{ $projet->id }}">{{ $projet->libelle }}</option>
@@ -197,7 +197,7 @@
                                     <div class="row">
                                         <div class="col-12 col-md-6">
                                             <label class="fw-bold">Nombre de part à souscrire<span style="color:red">*</span></label>
-                                            <input type="date" name="nbre_part_souscrit" class="form-control" id="nbre_part_souscrit" placeholder="Nombre de part souscris"  />
+                                            <input type="number" name="nbre_part_souscrit" class="form-control" id="nbre_part_souscrit" placeholder="Nombre de part souscris"  />
                                         </div>
                                         <div class="col-12 col-md-6">
                                             <label class="fw-bold">Montant Total<span style="color:red">*</span></label>
@@ -466,6 +466,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
+
 <script type="text/javascript">
     const quittance = document.getElementById('quittance')
 
@@ -520,5 +521,49 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     })
 </script>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Sélectionnez les éléments du DOM
+        const typePersonnePP = document.getElementById('type_personne_pp');
+        const typePersonnePM = document.getElementById('type_personne_pm');
+        const ppFields = document.getElementById('pp-fields');
+        const pmFields = document.getElementById('pm-fields');
+        const requiredPPFields = ppFields.querySelectorAll('[required]');
+        const requiredPMFields = pmFields.querySelectorAll('[required]');
+
+        // Fonction pour afficher les champs appropriés
+        function toggleFields() {
+            if (typePersonnePP.checked) {
+                ppFields.style.display = 'block';
+                pmFields.style.display = 'none';
+                requiredPMFields.forEach(field => {
+                    field.removeAttribute('required');
+                });
+                requiredPPFields.forEach(field => {
+                    field.setAttribute('required', 'true');
+                });
+            } else if (typePersonnePM.checked) {
+                ppFields.style.display = 'none';
+                pmFields.style.display = 'block';
+                requiredPPFields.forEach(field => {
+                    field.removeAttribute('required');
+                });
+                requiredPMFields.forEach(field => {
+                    field.setAttribute('required', 'true');
+                });
+            }
+        }
+
+        // Écouteurs d'événements pour les boutons radio
+        typePersonnePP.addEventListener('change', toggleFields);
+        typePersonnePM.addEventListener('change', toggleFields);
+
+        // Exécuter la fonction au chargement pour définir l'état initial
+        toggleFields();
+    });
+    </script>
 
 @endsection

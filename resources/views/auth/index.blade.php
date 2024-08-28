@@ -4,14 +4,8 @@
 @section('content')
 
 <div class="content">
-       {{--  <script>
-            setTimeout(function() {
-                document.querySelector('.alert.alert-success').style.display = 'none';
-            }, 3000); // Le message flash disparaîtra après 5 secondes (5000 millisecondes)
-        </script> --}}
 
         <div class="col-lg-6 offset-lg-5 animate__animated animate__fadeInUp">
-
 
             <br>
         </div>
@@ -21,8 +15,6 @@
                 <div class="col">
 
                     <div class="row">
-
-
                         <div class="col-lg col-md mb20">
                             <div class="mb-4">
                                 <div class="" style="width:14rem; border:none; text-align:left; display:inline">

@@ -76,9 +76,15 @@
         <nav id="navbar" class="navbar">
             <ul>
                 @auth
+                <li><a href="{{ route('projet.show') }}">Projet</a></li>
+                @endauth
+
+                @auth
                 <li><a href="{{ route('souscription.show') }}">Souscription</a></li>
                 @endauth
+
                 <li><a class="active" href="{{ route('souscription.create') }}">Effectuer une souscription</a></li>
+
                 @auth
                 <li><a href="{{ route('souscription.index') }}" style="color:green">{{\Illuminate\Support\Facades\Auth::user()->name }}</a></li>
                 <a class="dropdown-item" href="{{ route('auth.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color: red;"> {{ __('Se deconnecté') }} </a><form id="logout-form" action="{{ route('auth.logout') }}" method="post" class="d-none">@csrf</form>
